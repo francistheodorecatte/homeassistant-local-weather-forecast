@@ -451,12 +451,14 @@ template:
       - name: Local forecast Pressure
         unit_of_measurement: "hPa"
         device_class: 'atmospheric_pressure'
+        state_class: 'measurement'
         availability: "{{ states.sensor.local_forecast.attributes.p0 | is_number }}"
         state: >
           {{ states.sensor.local_forecast.attributes.p0|float(states.sensor.local_forecast_pressure.state) }}
       - name: Local forecast temperature
         unit_of_measurement: "°C"
         device_class: 'temperature'
+        state_class: 'measurement'
         availability: "{{ states.sensor.local_forecast.attributes.temperature | is_number }}"
         state: >
           {{ states.sensor.local_forecast.attributes.temperature|float(states.sensor.local_forecast_temperature.state) }}
